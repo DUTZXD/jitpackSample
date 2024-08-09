@@ -21,25 +21,25 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.zxd_layout)
-        appBarLayout = findViewById(R.id.app_bar)
-        toolBar = findViewById(R.id.tool_bar)
-        appBarLayout?.addOnOffsetChangedListener { appBarLayout, verticalOffset ->
-            val totalScrollRange = appBarLayout.totalScrollRange
-            val progress = (-verticalOffset).toFloat() / totalScrollRange.toFloat()
-            if (abs(verticalOffset) == appBarLayout.totalScrollRange) {
-                Log.d("@@#", "CollapsingToolbarLayout 完全折叠，显示 Toolbar")
-                // CollapsingToolbarLayout 完全折叠，显示 Toolbar
-                toolBar?.visibility = View.VISIBLE
-            } else {
-                Log.d("@@#", "CollapsingToolbarLayout 没有完全折叠，隐藏 Toolbar")
-                //
-                toolBar?.visibility = View.GONE
-            }
+        setContentView(R.layout.zxd_layout2)
+//        appBarLayout = findViewById(R.id.app_bar)
+//        toolBar = findViewById(R.id.tool_bar)
+//        appBarLayout?.addOnOffsetChangedListener { appBarLayout, verticalOffset ->
+//            val totalScrollRange = appBarLayout.totalScrollRange
+//            val progress = (-verticalOffset).toFloat() / totalScrollRange.toFloat()
+//            if (abs(verticalOffset) == appBarLayout.totalScrollRange) {
+//                Log.d("@@#", "CollapsingToolbarLayout 完全折叠，显示 Toolbar")
+//                // CollapsingToolbarLayout 完全折叠，显示 Toolbar
+//                toolBar?.visibility = View.VISIBLE
+//            } else {
+//                Log.d("@@#", "CollapsingToolbarLayout 没有完全折叠，隐藏 Toolbar")
+//                //
+//                toolBar?.visibility = View.GONE
+//            }
 //            Log.d("@@#", "verticalOffset: $verticalOffset")
 //            Log.d("@@#", "totalScrollRange: $totalScrollRange")
 //            Log.d("@@#", "progress: $progress")
-
-        }
+//
+//        }
     }
 }
