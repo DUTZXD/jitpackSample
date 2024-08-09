@@ -2,58 +2,44 @@ package com.zxd.jitpacksample
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import com.google.android.material.appbar.AppBarLayout
 import com.google.android.material.appbar.AppBarLayout.OnOffsetChangedListener
 import com.zxd.composetest.ui.NestCollapsingToolbarLayout
+import kotlin.math.abs
 
 
 class MainActivity : AppCompatActivity() {
 
-    //    private var toolbar: NestCollapsingToolbarLayout? = null
-//
-//    private var coupon: LinearLayout? = null
-//
-//    private var title: TextView? = null
     private var appBarLayout: AppBarLayout? = null
+
+    private var toolBar: Toolbar? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.zxd_layout)
         appBarLayout = findViewById(R.id.app_bar)
-        appBarLayout?.addOnOffsetChangedListener(OnOffsetChangedListener { appBarLayout, verticalOffset ->
+        toolBar = findViewById(R.id.tool_bar)
+        appBarLayout?.addOnOffsetChangedListener { appBarLayout, verticalOffset ->
             val totalScrollRange = appBarLayout.totalScrollRange
             val progress = (-verticalOffset).toFloat() / totalScrollRange.toFloat()
+            if (abs(verticalOffset) == appBarLayout.totalScrollRange) {
+                Log.d("@@#", "CollapsingToolbarLayout 完全折叠，显示 Toolbar")
+                // CollapsingToolbarLayout 完全折叠，显示 Toolbar
+                toolBar?.visibility = View.VISIBLE
+            } else {
+                Log.d("@@#", "CollapsingToolbarLayout 没有完全折叠，隐藏 Toolbar")
+                //
+                toolBar?.visibility = View.GONE
+            }
+//            Log.d("@@#", "verticalOffset: $verticalOffset")
+//            Log.d("@@#", "totalScrollRange: $totalScrollRange")
+//            Log.d("@@#", "progress: $progress")
 
-            Log.d("@@#", "verticalOffset: $verticalOffset")
-            Log.d("@@#", "totalScrollRange: $totalScrollRange")
-            Log.d("@@#", "progress: $progress")
-
-            // 缩放视图
-//            customTitleView.setScaleX(1f + progress)
-//            customTitleView.setScaleY(1f + progress)
-
-            // 根据需要调整视图的位置
-            // customTitleView.setTranslationY(-verticalOffset);
-        })
-//        toolbar = findViewById(R.id.tool_bar)
-//        coupon = findViewById(R.id.coupon)
-//        title = findViewById(R.id.title_discount)
-//        toolbar?.setOnScrimesShowListener(object :
-//            NestCollapsingToolbarLayout.OnScrimsShowListener {
-//            override fun onScrimsShowChange(
-//                nestCollapsingToolbarLayout: NestCollapsingToolbarLayout,
-//                isScrimesShow: Boolean
-//            ) {
-//                if (isScrimesShow) {
-//                    coupon?.visibility = VISIBLE
-//                } else {
-//                    coupon?.visibility = GONE
-//                    title?.setOnTouchListener(null)
-//                }
-//            }
-//        })
+        }
     }
 }
