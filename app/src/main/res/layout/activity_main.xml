@@ -1,18 +1,119 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:theme="@style/Theme.MaterialComponents.NoActionBar">
+            <com.zxd.composetest.ui.NestCollapsingToolbarLayout
+                android:id="@+id/tool_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#BBFFAA"
+
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                app:title="我是collapsebar的标题">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:layout_gravity="bottom"
+                    android:text="优惠券"
+                    android:textSize="40sp"
+                    android:gravity="center"
+
+                    app:layout_collapseMode="pin" />
+
+            </com.zxd.composetest.ui.NestCollapsingToolbarLayout>
+
+            <TextView
+                android:id="@+id/title_discount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="求降价标题栏"
+                android:textSize="20sp"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed"
+                android:gravity="bottom|center_horizontal"
+                android:textColor="#0f0" />
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/n_scroll_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="哈"
+                    android:textColor="#0f0"
+                    android:textSize="200sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="哈"
+                    android:textColor="#0f0"
+                    android:textSize="200sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="哈"
+                    android:textColor="#0f0"
+                    android:textSize="200sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="哈"
+                    android:textColor="#0f0"
+                    android:textSize="200sp" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+
+    <LinearLayout
+        android:id="@+id/coupon"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:visibility="gone"
+        tools:visibility="visible"
+        android:orientation="vertical"
+        >
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:background="#FFFF00"/>
+        <TextView
+            android:id="@+id/title_discount1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="求降价标题栏"
+            android:background="#000000"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:textColor="#0f0" />
+    </LinearLayout>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
+
+
