@@ -1,4 +1,4 @@
-package com.zxd.composetest.ui
+package com.zxd.jitpacksample
 
 import android.content.Context
 import android.util.AttributeSet

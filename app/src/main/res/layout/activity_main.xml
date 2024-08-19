@@ -14,7 +14,7 @@
             android:layout_height="wrap_content"
 
             android:theme="@style/Theme.MaterialComponents.NoActionBar">
-            <com.zxd.composetest.ui.NestCollapsingToolbarLayout
+            <com.zxd.jitpacksample.NestCollapsingToolbarLayout
                 android:id="@+id/tool_bar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -33,7 +33,7 @@
 
                     app:layout_collapseMode="pin" />
 
-            </com.zxd.composetest.ui.NestCollapsingToolbarLayout>
+            </com.zxd.jitpacksample.NestCollapsingToolbarLayout>
 
             <TextView
                 android:id="@+id/title_discount"
