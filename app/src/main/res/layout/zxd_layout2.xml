@@ -1,33 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
-    <!-- View A - 这个视图将保持在原位 -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:text="我是文字文字文字文字"
-        android:textColor="#000000"
-        android:textSize="30sp"
-        android:background="#BBFFAA"/>
-
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
         android:theme="@style/Theme.MaterialComponents.NoActionBar">
 
-        <!-- View B - 这个视图将随着滚动事件而滚动 -->
-        <TextView
-            android:text="求降价！！！！"
-            android:textColor="#000000"
-            android:textSize="20sp"
+        <com.google.android.material.appbar.CollapsingToolbarLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#DD00CC"
-            app:layout_scrollFlags="scroll"
-        />
+            app:contentScrim="#BBFFAA"
+            app:expandedTitleMarginBottom="100dp"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:title="我是collapsebar的标题">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_gravity="center"
+                android:text="视察效果(parallax)"
+                app:layout_collapseParallaxMultiplier="1.0"
+                android:textSize="40sp"
+                app:layout_collapseMode="parallax" />
+
+            <androidx.appcompat.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_gravity="top"
+                android:background="#600f"
+                app:layout_collapseMode="pin">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="我是toolbar" />
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="appbar之内,collap之外"
+            android:textColor="#0f0" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
